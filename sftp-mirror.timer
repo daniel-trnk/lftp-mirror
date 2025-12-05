@@ -1,6 +1,6 @@
 [Unit]
 Description=SFTP Mirror Timer - Start at 14:30 UTC
-#Documentation=
+Documentation=https://github.com/daniel-trnk/lftp-mirror/blob/master/README.md
 
 [Timer]
 # Start the service daily at exactly 14:30 UTC

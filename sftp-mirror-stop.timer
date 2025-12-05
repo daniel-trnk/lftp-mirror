@@ -1,6 +1,6 @@
 [Unit]
 Description=SFTP Mirror Stop Timer - Stop at 23:30 UTC
-#Documentation=
+Documentation=https://github.com/daniel-trnk/lftp-mirror/blob/master/README.md
 
 [Timer]
 # Stop the service daily at exactly 23:30 UTC

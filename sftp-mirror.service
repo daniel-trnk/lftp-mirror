@@ -1,6 +1,6 @@
 [Unit]
 Description=SFTP Mirror Service using lftp
-#Documentation=
+Documentation=https://github.com/daniel-trnk/lftp-mirror/blob/master/README.md
 After=network-online.target
 Wants=network-online.target
 

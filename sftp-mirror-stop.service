@@ -1,6 +1,6 @@
 [Unit]
 Description=Stop SFTP Mirror Service
-#Documentation=
+Documentation=https://github.com/daniel-trnk/lftp-mirror/blob/master/README.md
 After=sftp-mirror.service
 
 [Service]
