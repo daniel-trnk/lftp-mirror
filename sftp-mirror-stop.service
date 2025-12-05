@@ -1,0 +1,15 @@
+[Unit]
+Description=Stop SFTP Mirror Service
+#Documentation=
+After=sftp-mirror.service
+
+[Service]
+Type=oneshot
+# Stop the sftp-mirror service gracefully (sends SIGTERM)
+ExecStart=/usr/bin/systemctl --user stop sftp-mirror.service
+
+# Standard output/error handling
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sftp-mirror-stop
+

@@ -1,0 +1,48 @@
+[Unit]
+Description=SFTP Mirror Service using lftp
+#Documentation=
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# User and Group - adjust as needed for your system
+# User=sftp-mirror
+# Group=sftp-mirror
+
+# Path to the script and arguments
+# Replace SERVER, REMOTE_PATH, and LOCAL_PATH with your values
+# Add -j N for parallel jobs (default 3)
+# Add -a to force re-download all files
+# Set in override.conf file
+# ExecStart=/usr/bin/python3 /mnt/data/sftp_mirror.py SERVER REMOTE_PATH LOCAL_PATH
+
+# Environment variables for credentials
+# IMPORTANT: Set these in a drop-in override file for security
+# Create: /etc/systemd/system/sftp-mirror.service.d/override.conf
+# Environment="SFTP_USERNAME=your_username"
+# Environment="SFTP_PASSWORD=your_password"
+
+# Standard output/error handling
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sftp-mirror
+
+# Resource limits
+TimeoutStopSec=300
+TimeoutStartSec=7200
+
+# Security settings (adjust as needed)
+# PrivateTmp=yes
+# ProtectSystem=strict
+# ProtectHome=read-only
+# ReadWritePaths=/path/to/destination
+# NoNewPrivileges=yes
+
+# Restart settings (for oneshot services, this applies to failures)
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
+

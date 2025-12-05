@@ -1,0 +1,18 @@
+[Unit]
+Description=SFTP Mirror Stop Timer - Stop at 23:30 UTC
+#Documentation=
+
+[Timer]
+# Stop the service daily at exactly 23:30 UTC
+OnCalendar=*-*-* 23:30:00 UTC
+Unit=sftp-mirror-stop.service
+
+# Run immediately after boot if it missed the last scheduled run
+Persistent=true
+
+# No randomization - stop at exactly 23:30 UTC
+RandomizedDelaySec=0
+
+[Install]
+WantedBy=timers.target
+

@@ -1,0 +1,30 @@
+# Example override file for sftp-mirror.service
+# 
+# To use this file:
+# 1. Create directory: sudo mkdir -p /etc/systemd/system/sftp-mirror.service.d/
+# 2. Copy this file: sudo cp sftp-mirror.service.d-override.conf.example /etc/systemd/system/sftp-mirror.service.d/override.conf
+# 3. Edit with your credentials: sudo nano /etc/systemd/system/sftp-mirror.service.d/override.conf
+# 4. Reload systemd: sudo systemctl daemon-reload
+#
+# This file stores credentials securely and won't be overwritten on package updates
+
+[Service]
+# SFTP credentials - REQUIRED
+Environment="SFTP_USERNAME=your_username_here"
+Environment="SFTP_PASSWORD=your_password_here"
+
+# Optional: Override ExecStart to customize server, paths, or add flags
+# ExecStart=
+# ExecStart=/usr/bin/python3 /usr/local/bin/sftp_mirror.py example.com /remote/path /local/path -j 5
+
+# Optional: Set user/group
+# User=sftp-mirror
+# Group=sftp-mirror
+
+# Optional: Security hardening
+# PrivateTmp=yes
+# ProtectSystem=strict
+# ProtectHome=read-only
+# ReadWritePaths=/local/path
+# NoNewPrivileges=yes
+
